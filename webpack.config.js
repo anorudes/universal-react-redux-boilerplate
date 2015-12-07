@@ -1,10 +1,14 @@
 'use strict';
 
+const webpack = require('webpack');
 const path = require('path');
 
 const config = {
   entry: {
-    app: './src/app.jsx'
+    app: [
+      'webpack-hot-middleware/client',
+      './src/app.jsx'
+    ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -18,11 +22,16 @@ const config = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loaders: ['react-hot', 'babel'],
         include: path.join(__dirname, 'src')
       }
     ]
   },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
   devtool: 'eval'
 };
 
