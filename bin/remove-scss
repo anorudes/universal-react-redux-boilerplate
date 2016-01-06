@@ -1,0 +1,11 @@
+module.exports = function (babel) {
+  return {
+    visitor: {
+      ImportDeclaration(path) {
+        if (/\.scss$/.test(path.node.source.value)) {
+          path.remove();
+        }
+      }
+    }
+  };
+};

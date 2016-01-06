@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "./bin/server",
     "start": "NODE_ENV=production ./bin/server",
-    "build": "rm -rf dist && NODE_ENV=production ./node_modules/.bin/webpack --progress --colors",
+    "build:lib": "rm -rf lib && NODE_ENV=production babel src --out-dir lib --plugins ./bin/remove-scss",
+    "build:dist": "rm -rf dist && NODE_ENV=production webpack --progress --colors",
+    "build": "npm run build:lib && npm run build:dist",
     "clean": "rm -rf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.1.2",
+    "babel-cli": "^6.3.17",
     "babel-core": "^6.3.13",
     "babel-loader": "^6.2.0",
     "babel-plugin-react-transform": "^2.0.0-beta1",

@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 
-require('babel-polyfill');
-require('babel-register');
-require.extensions['.scss'] = () => {};
+if (process.env.NODE_ENV !== 'production') {
+  require('babel-polyfill');
+  require('babel-register')({
+    plugins: [require('./remove-scss')]
+  });
+}
+
 require('../config');
 
 const server = require('../server');
