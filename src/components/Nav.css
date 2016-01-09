@@ -1,0 +1,15 @@
+.Nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.Nav a {
+  display: block;
+  text-decoration: none;
+}
+
+.Nav a:hover,
+.Nav a:focus {
+  text-decoration: underline;
+}

@@ -1,6 +1,6 @@
 'use strict';
 
-import './App.scss';
+import styles from './App.css';
 
 import React, { Component } from 'react';
 
@@ -17,7 +17,7 @@ class App extends Component {
     ];
 
     return (
-      <div className="container">
+      <div className={styles.container}>
         <Header title={title} navLinks={navLinks} />
         {children}
       </div>

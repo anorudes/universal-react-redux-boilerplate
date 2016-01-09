@@ -2,8 +2,13 @@
 'use strict';
 
 require('babel-polyfill');
-require('babel-register');
-require.extensions['.scss'] = () => {};
+require('babel-register')({
+  plugins: [
+    ["css-modules-transform", {
+      "generateScopedName": "[name]__[local]___[hash:base64:5]"
+    }]
+  ]
+});
 require('../config');
 
 const server = require('../server');

@@ -1,6 +1,6 @@
 'use strict';
 
-import './Header.scss';
+import styles from './Header.css';
 
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 import Nav from './Nav';
 
 const Header = ({ title, navLinks }) => (
-  <header className="Header">
+  <header className={styles.Header}>
     <Link to="/">{title}</Link>
     <Nav links={navLinks} />
   </header>

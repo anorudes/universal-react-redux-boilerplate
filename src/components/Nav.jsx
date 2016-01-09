@@ -1,12 +1,12 @@
 'use strict';
 
-import './Nav.scss';
+import styles from './Nav.css';
 
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 const Nav = ({ links }) => (
-  <nav className="Nav">
+  <nav className={styles.Nav}>
     <ul>
       {links.map(({ to, text, onlyActiveOnIndex = false }, i) => (
         <li key={i}>

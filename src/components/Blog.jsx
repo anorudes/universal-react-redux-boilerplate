@@ -1,6 +1,6 @@
 'use strict';
 
-import './Blog.scss';
+import styles from './Blog.css';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -28,12 +28,12 @@ class Blog extends Component {
     });
 
     return (
-      <div className="Blog">
-        <aside className="overview">
+      <div className={styles.Blog}>
+        <aside className={styles.overview}>
           <h1>Articles:</h1>
           <Nav links={links} />
         </aside>
-        <main className="article">
+        <main className={styles.article}>
           {children}
         </main>
       </div>

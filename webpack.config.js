@@ -50,8 +50,8 @@ if (__DEV__) {
           }
         },
         {
-          test: /\.scss$/,
-          loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
+          test: /\.css$/,
+          loaders: ['style', 'css?modules&localIdentName=[name]__[local]___[hash:base64:5]&sourceMap', 'postcss']
         }
       ]
     },
@@ -100,8 +100,8 @@ if (__PROD__) {
           include: path.join(__dirname, 'src')
         },
         {
-          test: /\.scss$/,
-          loader: ExtractTextPlugin.extract('style', ['css?sourceMap', 'postcss', 'sass?sourceMap'])
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract('style', ['css?modules&localIdentName=[name]__[local]___[hash:base64:5]&sourceMap', 'postcss'])
         }
       ],
       noParse: [reactPath]
