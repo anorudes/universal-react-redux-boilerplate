@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { match, RoutingContext } from 'react-router';
