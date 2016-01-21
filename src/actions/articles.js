@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   FETCH_ARTICLES,
   FETCH_ARTICLES_SUCCESS,

@@ -15,7 +15,7 @@ class Template extends Component {
     return (
       <html>
         <head>
-          <title>Universal React + Redux Boilerplate</title>
+          <title>App</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           {this.props.css.map((css, i) => (<link key={i} rel="stylesheet" href={css} />))}
         </head>
