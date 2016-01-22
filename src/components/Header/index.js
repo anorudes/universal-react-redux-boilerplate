@@ -8,7 +8,7 @@ export class Header extends Component {
   render() {
     return (
       <header className='header'>
-        1231231
+        header
       </header>
     );
   }

@@ -14,6 +14,7 @@ export class App extends Component {
     return (
       <section>
         <Header />
+        { this.props.children }
       </section>
     );
   }

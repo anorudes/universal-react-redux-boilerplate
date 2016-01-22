@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 
-let config = {};
+var config = {};
 
 if (__DEV__) {
   config = {
