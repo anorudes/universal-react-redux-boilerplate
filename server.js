@@ -28,6 +28,8 @@ router.get('*', function* () {
     this.status = status;
   });
 });
+
+server.use(serve('./static'));
 server.use(router.routes());
 server.use(router.allowedMethods());
 

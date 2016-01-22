@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export class Home extends Component {
+export class NotFound extends Component {
   render() {
     return (
       <section>
-        <img src="/static/a.jpg" />
+        Not found
       </section>
     );
   }
