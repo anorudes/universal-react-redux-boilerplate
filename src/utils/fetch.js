@@ -1,5 +1,3 @@
-'use strict';
-
 // Placeholder text by http://www.fillerati.com/
 const articles = [
   {

@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 
 class Template extends Component {
@@ -15,7 +13,7 @@ class Template extends Component {
     return (
       <html>
         <head>
-          <title>App</title>
+          <title>Universal React + Redux Boilerplate</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           {this.props.css.map((css, i) => (<link key={i} rel="stylesheet" href={css} />))}
         </head>

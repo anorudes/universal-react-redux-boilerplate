@@ -1,5 +1,3 @@
-'use strict';
-
 import { compose, applyMiddleware, createStore } from 'redux';
 import { createMiddleware } from 'redux-promises';
 

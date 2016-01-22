@@ -1,5 +1,3 @@
-'use strict';
-
 import { FETCH_ARTICLES_SUCCESS, FETCH_ARTICLE_SUCCESS } from '../constants/actions';
 
 // Stores all articles as a flat map
