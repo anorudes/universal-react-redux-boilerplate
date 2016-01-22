@@ -4,7 +4,7 @@ export class Home extends Component {
   render() {
     return (
       <section>
-        <img src="/static/a.jpg" />
+        <img src="/a.jpg" />
       </section>
     );
   }
