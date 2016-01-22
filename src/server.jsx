@@ -4,7 +4,7 @@ import { match, RoutingContext } from 'react-router';
 import { Provider } from 'react-redux';
 import { ensureIdleState } from 'redux-promises';
 
-import Template from './Template';
+import Template from './template';
 import { configureStore } from './store';
 import { configureRoutes } from './routes';
 

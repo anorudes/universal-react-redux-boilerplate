@@ -1,26 +1,26 @@
 require('./config');
 
+var config = {};
+
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
-
-var config = {};
 
 if (__DEV__) {
   config = {
     entry: {
       app: [
         'webpack-hot-middleware/client',
-        './src/app.jsx'
-      ]
+        './src/app.jsx',
+      ],
     },
     resolve: {
-      extensions: ['', '.js', '.jsx']
+      extensions: ['', '.js', '.jsx'],
     },
     output: {
       path: path.join(__dirname, 'dist'),
       filename: 'app.js',
-      publicPath: '/'
+      publicPath: '/',
     },
     module: {
       loaders: [
@@ -39,31 +39,31 @@ if (__DEV__) {
                       locals: ['module']
                     }, {
                       transform: 'react-transform-catch-errors',
-                      imports: ['react', 'redbox-react']
-                    }]
-                  }]
-                ]
-              }
-            }
-          }
+                      imports: ['react', 'redbox-react'],
+                    }],
+                  }],
+                ],
+              },
+            },
+          },
         },
         {
           test: /\.scss$/,
           loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
-        }
-      ]
+        },
+      ],
     },
     postcss: [
       autoprefixer({
-        browsers: ['last 2 versions']
-      })
+        browsers: ['last 2 versions'],
+      }),
     ],
     plugins: [
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin()
+      new webpack.NoErrorsPlugin(),
     ],
-    devtool: 'eval'
+    devtool: 'eval',
   };
 }
 
@@ -76,19 +76,19 @@ if (__PROD__) {
 
   config = {
     entry: {
-      app: './src/app.jsx'
+      app: './src/app.jsx',
     },
     resolve: {
       extensions: ['', '.js', '.jsx'],
       alias: {
         'react': reactPath,
-        'react-dom': reactDOMPath
-      }
+        'react-dom': reactDOMPath,
+      },
     },
     output: {
       path: path.join(__dirname, 'dist'),
       filename: 'app.[chunkhash].js',
-      publicPath: '/'
+      publicPath: '/',
     },
     module: {
       loaders: [
@@ -100,28 +100,28 @@ if (__PROD__) {
         {
           test: /\.scss$/,
           loader: ExtractTextPlugin.extract('style', ['css?sourceMap', 'postcss', 'sass?sourceMap'])
-        }
+        },
       ],
-      noParse: [reactPath]
+      noParse: [reactPath],
     },
     postcss: [
       autoprefixer({
-        browsers: ['last 2 versions']
-      })
+        browsers: ['last 2 versions'],
+      }),
     ],
     plugins: [
       new ExtractTextPlugin('app.[contenthash:20].css'),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compressor: {
-          warnings: false
-        }
+          warnings: false,
+        },
       }),
       function () {
         this.plugin('done', (stats) => {
           const manifest = {
             js: [],
-            css: []
+            css: [],
           };
           const publicPath = '/';
 
@@ -139,9 +139,9 @@ if (__PROD__) {
             JSON.stringify(manifest, null, 2)
           );
         });
-      }
+      },
     ],
-    devtool: 'source-map'
+    devtool: 'source-map',
   };
 }
 

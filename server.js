@@ -29,7 +29,7 @@ router.get('*', function* () {
   });
 });
 
-server.use(serve('./static'));
+server.use(serve('static'));
 server.use(router.routes());
 server.use(router.allowedMethods());
 

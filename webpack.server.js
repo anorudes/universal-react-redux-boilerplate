@@ -4,7 +4,7 @@ const config = require('./webpack.config');
 const transpiler = webpack(config);
 const devMiddleware = require('webpack-dev-middleware')(transpiler, {
   noInfo: true,
-  publicPath: config.output.publicPath
+  publicPath: config.output.publicPath,
 });
 const hotMiddleware = require('webpack-hot-middleware')(transpiler);
 
@@ -12,17 +12,17 @@ const hotMiddleware = require('webpack-hot-middleware')(transpiler);
 // ...in a very hacky way 😓
 const connect = (middleware, mockResponse) => {
   return function* (next) {
-    let runNext = yield (done) => {
-      let req = this.req;
-      let res = mockResponse ? {
+    const runNext = yield (done) => {
+      const req = this.req;
+      const res = mockResponse ? {
         end: (content) => {
           this.body = content;
         },
         setHeader: (field, value) => {
           this.set(field, value);
-        }
+        },
       } : this.res;
-      let oldResEnd = res.end;
+      const oldResEnd = res.end;
 
       res.end = function () {
         oldResEnd.apply(this, arguments);
